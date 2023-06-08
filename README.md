@@ -34,7 +34,8 @@ EOF  all  create  destroy  help  quit  show  update
 ```
 
 ## Flowchart
-![image](https://github.com/casonbobo/holbertonschool-AirBnB_clone/assets/115739693/4df8fedd-993b-4fa9-915a-c81929ac2636)
+![image](https://github.com/casonbobo/holbertonschool-AirBnB_clone/assets/115739693/c06affdc-28b6-48d3-be27-6dfcb5a87507)
+
 
 
 ## Authors
