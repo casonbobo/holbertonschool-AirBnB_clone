@@ -33,6 +33,10 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) quit
 ```
 
+## Flowchart
+![image](https://github.com/casonbobo/holbertonschool-AirBnB_clone/assets/115739693/4df8fedd-993b-4fa9-915a-c81929ac2636)
+
+
 ## Authors
 
 Cason Bobo - [GitHub](https://github.com/casonbobo)
