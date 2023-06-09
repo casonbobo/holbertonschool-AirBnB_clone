@@ -19,7 +19,7 @@ class BaseModel():
     def to_dict(self):
         """Dictionary representation of BaseModel"""
         data = self.__dict__.copy()
-        data['created_at'] = self.__class__.__name__
+        data['__class__'] = self.__class__.__name__
         data['created_at'] = self.created_at.isoformat()
         data['updated_at'] = self.updated_at.isoformat()
         return data
