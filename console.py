@@ -6,7 +6,6 @@ import sys
 
 class HBNBCommand(cmd.Cmd):
     """Console interpreter that will do all of the back-end commands"""
-    intro = "Welcome to MyCmdInterpreter! Type 'help' to see the available commands."
     prompt = "(hbnb) "
 
     def do_greet(self, args):
@@ -14,12 +13,12 @@ class HBNBCommand(cmd.Cmd):
         print("Hello, {}!".format(args))
 
     def do_quit(self, args):
-        """Exits"""
+        """Quit command to exit the program"""
         print("Goodbye!")
         sys.exit()
 
     def do_EOF(self, args):
-        """Exits"""
+        """Quit command to exit the program"""
         print("Goodbye!")
         sys.exit()  
 
