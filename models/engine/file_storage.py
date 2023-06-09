@@ -28,9 +28,8 @@ class FileStorage:
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r") as file:
                 data = json.load(file)
-                for key, obj_data in data.items():
-                    class_name, obj_id = key.split('.')
-                    module = __import__("models." + class_name, fromlist=[class_name])
-                    cls = getattr(module, class_name)
-                    obj = cls(**obj_data)
+                for key, obj_dict in data.items():
+                    class_name = key.split('.')[0]
+                    storeClass = globals()[class_name]
+                    obj = storeClass(**obj_dict)
                     self.__objects[key] = obj
