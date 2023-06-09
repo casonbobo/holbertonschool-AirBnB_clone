@@ -1,7 +1,11 @@
+#!/usr/bin/python3
+"""This is a console interpreter for the first AirBnB project"""
 import cmd
 import sys
 
+
 class HBNBCommand(cmd.Cmd):
+    """Console interpreter that will do all of the back-end commands"""
     intro = "Welcome to MyCmdInterpreter! Type 'help' to see the available commands."
     prompt = "(hbnb) "
 
