@@ -3,14 +3,13 @@
     for all classes for the AirBnB project"""
 import uuid
 from datetime import datetime
-from models import storage
-
 
 
 class BaseModel():
     """Base Model Class"""
     def __init__(self, *args, **kwargs):
         """Initialization of BaseModel class"""
+        from models import storage
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
@@ -27,6 +26,7 @@ class BaseModel():
 
     def save(self):
         """Saves and updates the date"""
+        from models import storage
         self.updated_at = datetime.now()
         storage.save()
 
