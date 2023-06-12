@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-    Module for State model
+    Module for Amenity model
 """
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
+class Amenity(BaseModel):
 
     """
-        Info on AirBnB States
+        Info on AirBnB Amenities
         Public class attributes:
             name: string - empty string
     """
@@ -18,4 +18,4 @@ class State(BaseModel):
         super().__init__(*args, **kwargs)
 
     def to_dict(self):
-        return super(State, self).to_dict()
+        return super(Amenity, self).to_dict()
