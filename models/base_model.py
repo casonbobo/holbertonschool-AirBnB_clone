@@ -3,7 +3,6 @@
     for all classes for the AirBnB project"""
 import uuid
 from datetime import datetime
-import models
 
 
 class BaseModel():

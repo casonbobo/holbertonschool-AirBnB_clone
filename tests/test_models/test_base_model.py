@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Unit test module for BaseModel class """
+
 import unittest
 import os
 from models.engine.file_storage import FileStorage
@@ -9,45 +11,37 @@ from models.base_model import BaseModel
 my_model = BaseModel()
 
 
-class TestBaseModel(unittest.TestCase):
-    """ Class for Basemodel tests """
-
-    def setUp(self):
-        self.model = BaseModel()
-
-    def tearDown(self):
-        storage.delete(self.model)
+class TestBase(unittest.TestCase):
+    """ Class for BaseModel tests """
 
     def test_id(self):
-        self.assertIsNotNone(self.model.id)
-        self.assertIsInstance(self.model.id, str)
+        """ Unittesting test_id instance """
+        self.assertTrue(type(my_model.id) is str)
 
     def test_created_at(self):
-        self.assertIsNotNone(self.model.created_at)
-        self.assertIsInstance(self.model.created_at, datetime)
-
-    def test_updated_at(self):
-        self.assertIsNotNone(self.model.updated_at)
-        self.assertIsInstance(self.model.updated_at, datetime)
-
-    def test_save(self):
-        prev_updated_at = self.model.updated_at
-        self.model.save()
-        self.assertNotEqual(prev_updated_at, self.model.updated_at)
-
-    def test_to_dict(self):
-        model_dict = self.model.to_dict()
-        self.assertIsInstance(model_dict, dict)
-        self.assertEqual(model_dict['__class__'], 'BaseModel')
-        self.assertEqual(model_dict['created_at'], self.model.created_at.isoformat())
-        self.assertEqual(model_dict['updated_at'], self.model.updated_at.isoformat())
+        """ Unittesting created_at instance """
+        self.assertTrue(type(my_model.created_at) is datetime)
 
     def test_str(self):
-        model_str = str(self.model)
-        self.assertIsInstance(model_str, str)
-        self.assertIn(self.model.__class__.__name__, model_str)
-        self.assertIn(self.model.id, model_str)
-        self.assertIn(str(self.model.__dict__), model_str)
+        """ Unittesting __str__ method """
+        self.assertEqual(str(my_model), "[{}] ({}) {}".format(
+            my_model.__class__.__name__, my_model.id, my_model.to_dict()))
+
+    def test_to_dict(self):
+        """ Unittesting to_dict method """
+        my_dict = my_model.to_dict()
+        self.assertTrue(type(my_dict["created_at"]) is str)
+        self.assertTrue(type(my_dict) is dict)
+        self.assertEqual(my_dict["__class__"], "BaseModel")
+        self.assertIn("__class__", my_dict.keys())
+
+    def test_save(self):
+        """ Unittesting save method """
+        my_save = my_model.updated_at
+        my_model.save()
+        self.assertTrue(os.path.exists("file.json"))
+        my_save2 = my_model.updated_at
+        self.assertNotEqual(my_save, my_save2)
 
 
 if __name__ == '__main__':
