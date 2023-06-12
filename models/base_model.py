@@ -25,8 +25,6 @@ class BaseModel():
             self.created_at = self.updated_at = datetime.now()
             storage.new(self)
 
-
-
     def save(self):
         """Saves and updates the date"""
         from models import storage
