@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, args):
         """Quit command to exit the program"""
         print("Goodbye!")
-        sys.exit()  
+        sys.exit()
 
     def emptyline(self):
         """Override the default behavior of an empty line"""
@@ -65,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
-            print ("** instance id missing **")
+            print("** instance id missing **")
             return
         instance_id = args[1]
         key = "{}.{}".format(class_name, instance_id)
@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         attr_value = args[3].strip('"')
         if attr_name in ["id", "created_at", "updated_at"]:
             return
-         obj = all_objs[instance_key]
+        obj = all_objs[instance_key]
         setattr(obj, attr_name, type(getattr(obj, attr_name))(attr_value))
         self.storage.save()
 
