@@ -41,6 +41,19 @@ class HBNBCommand(cmd.Cmd):
         """Override the default behavior of an empty line"""
         pass
 
+    def do_destroy(self, arg):
+        """Deletes an instance based on the class name"""
+        if arg is None or arg == "":
+            print("** class name missing **")
+        elif arg.split(" ")[0] not in model_classes.keys():
+            print("** class doesn't exist **")
+        elif " " not in arg:
+            print("** instance id missing **")
+        elif arg.replace(" ", ".") not in models.storage.all():
+            print("** no instance found **")
+        else:
+            models.storage.remove(arg.replace(" ", "."))
+
     def do_show(self, arg):
         """Prints the string representation of an instance"""
         args = arg.split()
@@ -61,6 +74,13 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
         print(obj_dict[key])
+
+    def do_all(self, arg):
+        """Prints all string representations of all instances"""
+        if arg not in model_classes.keys() and arg != "":
+            print("** class doesn't exist **")
+        else:
+            print(models.storage.all())
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
