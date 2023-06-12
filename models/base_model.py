@@ -24,8 +24,6 @@ class BaseModel():
             self.created_at = self.updated_at = datetime.now()
             storage.new(self)
 
-
-
     def save(self):
         """Saves and updates the date"""
         from models import storage
@@ -42,4 +40,5 @@ class BaseModel():
 
     def __str__(self):
         """String representation function"""
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        return ("[{}] ({}) {}".
+                format(self.__class__.__name__, self.id, self.__dict__))
