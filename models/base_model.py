@@ -8,23 +8,27 @@ from datetime import datetime
 class BaseModel():
     """Base Model Class"""
     def __init__(self, *args, **kwargs):
-        if kwargs:
-            if '__class__' in kwargs:
-                kwargs.pop('__class__')
+        """Initialization of BaseModel class"""
+        from models import storage
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = self.created_at
+        if kwargs is not None:
             for key, value in kwargs.items():
-                if key in ['created_at', 'updated_at']:
-                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                if key == '__class__':
+                    continue
+                if key == 'created_at' or key == 'updated_at':
+                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 setattr(self, key, value)
         else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            storage.new(self)
+
 
     def save(self):
         """Saves and updates the date"""
+        from models import storage
         self.updated_at = datetime.now()
-        models.storage.new(self)
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """Dictionary representation of BaseModel"""
