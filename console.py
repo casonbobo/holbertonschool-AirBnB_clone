@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         attr_value = args[3].strip('"')
         if attr_name in ["id", "created_at", "updated_at"]:
             return
-         obj = all_objs[instance_key]
+        obj = all_objs[instance_key]
         setattr(obj, attr_name, type(getattr(obj, attr_name))(attr_value))
         self.storage.save()
 
