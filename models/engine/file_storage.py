@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+"""
+This is the class for storing the files
+after window close or program shut down
+"""
 import json
 import os
 
@@ -25,11 +30,14 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
-        if os.path.exists(self.__file_path):
-            with open(self.__file_path, "r") as file:
+        try:
+            with open(self.__file_path, mode="r",encoding='utf-8') as file:
                 data = json.load(file)
                 for key, obj_dict in data.items():
                     class_name = key.split('.')[0]
                     storeClass = globals()[class_name]
                     obj = storeClass(**obj_dict)
                     self.__objects[key] = obj
+        except FileNotFoundError:
+            pass
+        
