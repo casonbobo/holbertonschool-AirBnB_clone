@@ -6,7 +6,7 @@ after window close or program shut down
 import json
 import os
 from models.base_model import BaseModel
-
+from models.models import model_classes
 
 class FileStorage:
     __file_path = "file.json"
