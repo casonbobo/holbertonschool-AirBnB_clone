@@ -90,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
         if len(a) == 0:
             print("** class name missing **")
         elif a[0] not in model_classes.keys():
-            print("** class doesn't exist**")
+            print("** class doesn't exist **")
         elif len(a) < 2:
             print("** instance id missing **")
         elif "{}.{}".format(a[0], a[1]) not in models.storage.all():
