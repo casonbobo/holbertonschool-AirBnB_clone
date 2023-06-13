@@ -103,5 +103,6 @@ class HBNBCommand(cmd.Cmd):
             k = "{}.{}".format(a[0], a[1])
             models.storage.update(models.storage.all()[k], a[2], a[3])
 
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
