@@ -4,6 +4,7 @@ import cmd
 import sys
 import os
 import models
+import shlex
 from models.base_model import BaseModel
 from models.models import model_classes
 
@@ -85,37 +86,22 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Updates an instacne based on the class name and id by
         adding or updating attributes"""
-        args = arg.split()
-        if not args:
+        i = shlex.split(arg)
+        if len(i) == 0:
             print("** class name missing **")
-            return
-        class_name = args[0]
-        if class_name not in models:
-            print("** class doesn't exist **")
-            return
-        if len(args) < 2:
+        elif a[0] not in model_classes.keys():
+            print("** class doesn't exist**")
+        elif len(a) < 2:
             print("** instance id missing **")
-            return
-        instance_id = args[1]
-        all_objs = self.storage.all()
-        instance_key = "{}.{}".format(class_name, instance_id)
-        if instance_key not in all_objs:
+        elif "{}.{}".format(a[0], a[1]) not in models.storage.all():
             print("** no instance found **")
-            return
-        if len(args) < 3:
+        elif len(a) < 3:
             print("** attribute name missing **")
-            return
-        attr_name = args[2]
-        if len(args) < 4:
+        elif len(a) < 4:
             print("** value missing **")
-            return
-        attr_value = args[3].strip('"')
-        if attr_name in ["id", "created_at", "updated_at"]:
-            return
-        obj = all_objs[instance_key]
-        setattr(obj, attr_name, type(getattr(obj, attr_name))(attr_value))
-        self.storage.save()
-
+        else:
+            k = "{}.{}".format(a[0], a[1])
+            models.storage.update(models.storage.all()[k], a[2], a[3])
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
