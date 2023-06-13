@@ -86,8 +86,8 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Updates an instacne based on the class name and id by
         adding or updating attributes"""
-        i = shlex.split(arg)
-        if len(i) == 0:
+        a = shlex.split(arg)
+        if len(a) == 0:
             print("** class name missing **")
         elif a[0] not in model_classes.keys():
             print("** class doesn't exist**")
