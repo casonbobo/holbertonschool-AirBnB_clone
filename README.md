@@ -12,10 +12,10 @@ This repository is the first part of the AirBnB project at Holberton School that
 
 ## Installation
 
-* Clone this repository: 'git clone "https://github.com/casonbobo/AirBnB_Clone.git"'
-* Access AirBnB directory: 'cd AirBnB_Clone'
-* Run hbnb(interactively): './console' and enter'
-* Run hbnb(non-interactively): 'echo "<command>" | ./console.py'
+* Clone this repository: `git clone "https://github.com/casonbobo/AirBnB_Clone.git"`
+* Access AirBnB directory: `cd AirBnB_Clone`
+* Run hbnb(interactively): `./console' and enter`
+* Run hbnb(non-interactively): `echo "<command>" | ./console.py`
 
 ## File Description
 [console.py](console.py) - the console contains the entry point of the command interpreter. 
