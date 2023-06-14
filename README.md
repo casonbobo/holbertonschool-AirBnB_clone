@@ -21,14 +21,14 @@ This repository is the first part of the AirBnB project at Holberton School that
 [console.py](console.py) - the console contains the entry point of the command interpreter. 
 List of commands this console currently supports.
 
-* 'EOF' - exits console
-* 'quit' - exits console
-* '<emptyline>' - overwrites default emptyline method and does nothing
-* 'create' - creates a new instance of 'BaseModel', saves it (to JSON file) and print the id
-* 'destroy' - deletes an instance based on the class name and id (saves to JSON file)
-* 'show' - prints the string representation of an instance based on the class name and id
-* 'all' - prints all string representation of all instances based or not on the class name
-* 'update' - Updates an instance based on the class name and id by adding or updating attribute
+* `EOF` - exits console
+* `quit` - exits console
+* `<emptyline>` - overwrites default emptyline method and does nothing
+* `create` - creates a new instance of 'BaseModel', saves it (to JSON file) and print the id
+* `destroy` - deletes an instance based on the class name and id (saves to JSON file)
+* `show` - prints the string representation of an instance based on the class name and id
+* `all` - prints all string representation of all instances based or not on the class name
+* `update` - Updates an instance based on the class name and id by adding or updating attribute
 
 ## Examples of use
 ```bash
