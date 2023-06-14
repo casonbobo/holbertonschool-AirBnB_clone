@@ -43,7 +43,6 @@ EOF  all  create  destroy  help  quit  show  update
 ** class doesn't exist **
 (hbhb) create BaseModel
 96892712-7e86-4a70-9b48-34b3227bd1
-(hbnb) show BaseModel
 (hbnb) all BaseModel
 {'BaseModel.96892712-7e86-4a70-9b48-34b632272bd1': <models.base_model.BaseModel object at 0x7fc3cbc37190>}
 (hbnb) show BaseModel 96892712-7e86-4a70-9b48-34b632272bd1
